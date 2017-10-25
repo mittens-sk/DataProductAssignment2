@@ -1,0 +1,36 @@
+---
+title: "Second Assignment"
+author: "mittens@sk.com"
+date: "Oct. 25th 2017"
+output: ioslides_presentation
+---
+  
+  ```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Synopsis
+
+  The scatter plot graph with famous mtcars dataset. Graph shows the correlation between MPG of cars and horse power.
+
+
+## Graph
+
+```{r, fig.align='center', message=F, warning=F}
+library(plotly)
+data(mtcars)
+
+p <- plot_ly(mtcars, x = mtcars$mpg, y = mtcars$hp, type="scatter",
+  mode="markers",
+  marker = list(size = 10,
+  color = 'rgba(255, 182, 193, .9)',
+  line = list(color = 'rgba(152, 0, 0, .8)',
+  width = 2))) %>%
+             
+  layout(
+    title = "MPG via Horse Power",
+    xaxis = list(title = "MPG"),
+    yaxis = list(title = "HP"))
+
+p
+```
